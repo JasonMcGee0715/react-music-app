@@ -3,13 +3,23 @@ import React from 'react';
 // import { Typography } from '@material-ui/core';
 import Header from './components/Header'
 
-function App() {
+class App extends React.Component {
+
+constructor(props) {
+  super(props);
+
+  this.state = {
+    isLoggedIn: ''
+  }
+}
+
+  render() {
   return (
     <div className="App">
       <Header />
-    
+
     </div>
-  );
+  );}
 }
 
 export default App;
