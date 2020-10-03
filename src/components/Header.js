@@ -23,7 +23,7 @@ const Header = () => {
             </div>
             <div>
               <Typography class="quote" variant="title" color="inherit">
-                “Where words leave off, music begins.” ― Heinrich Heine
+                “Where words leave off, music begins.” ― Heinrich Heine (YEA!)
               </Typography>
             </div>
           </div>
