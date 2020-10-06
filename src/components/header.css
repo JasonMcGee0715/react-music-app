@@ -1,0 +1,19 @@
+.toolBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuAndTitle {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding-left: 3rem;
+  font-size: larger;
+}
+
+.quote {
+  padding-left: 16rem;
+  font-size: medium;
+}
