@@ -1,24 +1,18 @@
 import React from "react";
-// import './App.css';
+import "./App.css";
 // import { Typography } from '@material-ui/core';
 import Header from "./components/Header";
+import Login from "./components/Login";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoggedIn: false,
-    };
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Header />
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <div className="Login">
+        <Login />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
