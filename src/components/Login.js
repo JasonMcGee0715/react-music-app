@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Dashboard from "./Dashboard";
 
 class Login extends Component {
   constructor(props) {
@@ -9,26 +10,19 @@ class Login extends Component {
     this.state = {
       loggedIn: false,
     };
-    this.handleClick = this.handleClick.bind(this);
-    //this.enterDash = this.enterDash.bind(this);
   }
 
-  //status = this.state.loggedIn;
-
-  handleClick() {
+  handleClick = (evt) => {
+    console.log("clicked");
     this.setState({
       loggedIn: true,
     });
-    console.log(this.state.loggedIn);
-  }
-
-  /*enterDash(status) {
-    if (status === true) {
-      <**Render Dashboard here**>
-      <Dashboard />
-    }*/
+  };
 
   render() {
+    if (this.state.loggedIn === true) {
+      return <Dashboard />;
+    }
     return (
       <div>
         <h3>Username*</h3>
