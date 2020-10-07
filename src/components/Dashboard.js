@@ -2,20 +2,285 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import Slider from "@material-ui/core/Slider";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import NativeSelect from "@material-ui/core/NativeSelect";
+import OnlineMode from "./Notifications/onlineMode";
+import MasterVolume from "./Notifications/masterVolume";
+import SoundQuality from "./Notifications/soundQuality";
 
-const Dashboard = (props) => {
-  return (
-    <div>
-      <Card></Card>
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
 
-      <Card></Card>
+    this.state = {
+      onlineMode: false,
+    };
+  }
 
-      <Card></Card>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="fullContainer">
+        <h2>Welcome to your Music App!</h2>
+        <div className="cardContainer">
+          <Grid spacing={24} style={{ padding: 24, display: "flex" }}>
+            <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6" component="h2">
+                    Online Mode
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    <br />
+                    Is this application connected to the internet?
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <FormControlLabel
+                    control={<Switch name="loginSlider" />}
+                    label="Secondary"
+                  />
+                </CardActions>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6" component="h2">
+                    Master Volume
+                  </Typography>
+                  <br />
+                  <Typography variant="body2" component="p">
+                    Overrides all other sound settings in this application.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Slider
+                    defaultValue={30}
+                    aria-labelledby="discrete-slider"
+                    valueLabelDisplay="auto"
+                    step={10}
+                    marks
+                    min={10}
+                    max={110}
+                  />
+                </CardActions>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6" component="h2">
+                    Sound Quality
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    <br />
+                    Manually control the music quality in the event of a poor
+                    connection.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <FormControl>
+                    <InputLabel htmlFor="uncontrolled-native">Name</InputLabel>
+                    <NativeSelect
+                      defaultValue={30}
+                      inputProps={{
+                        id: "uncontrolled-native",
+                      }}
+                    >
+                      <option value={10}>Low</option>
+                      <option value={20}>Normal</option>
+                      <option value={30}>High</option>
+                    </NativeSelect>
+                  </FormControl>
+                </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
+        </div>
+        <h4>System Notifications...</h4>
+        <div className="notifications">
+          <Grid spacing={24} style={{ padding: 24, display: "flex" }}>
+            <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+              <Card>
+                <OnlineMode />
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+              <Card>
+                <MasterVolume />
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+              <Card>
+                <SoundQuality />
+              </Card>
+            </Grid>
+          </Grid>
+        </div>
+      </div>
+    );
+  }
+}
+
+// const Dashboard = (props) => {
+//   return (
+//     <div className="fullContainer">
+//       <h2>Welcome to your Music App!</h2>
+//       <div className="cardContainer">
+//         <Grid spacing={24} style={{ padding: 24, display: "flex" }}>
+//           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+//             <Card>
+//               <CardContent>
+//                 <Typography variant="h6" component="h2">
+//                   Online Mode
+//                 </Typography>
+//                 <Typography variant="body2" component="p">
+//                   <br />
+//                   Is this application connected to the internet?
+//                 </Typography>
+//               </CardContent>
+//               <CardActions>
+//                 <FormControlLabel
+//                   control={<Switch name="loginSlider" />}
+//                   label="Secondary"
+//                 />
+//               </CardActions>
+//             </Card>
+//           </Grid>
+
+//           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+//             <Card>
+//               <CardContent>
+//                 <Typography variant="h6" component="h2">
+//                   Master Volume
+//                 </Typography>
+//                 <br />
+//                 <Typography variant="body2" component="p">
+//                   Overrides all other sound settings in this application.
+//                 </Typography>
+//               </CardContent>
+//               <CardActions>
+//                 <Slider
+//                   defaultValue={30}
+//                   aria-labelledby="discrete-slider"
+//                   valueLabelDisplay="auto"
+//                   step={10}
+//                   marks
+//                   min={10}
+//                   max={110}
+//                 />
+//               </CardActions>
+//             </Card>
+//           </Grid>
+
+//           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+//             <Card>
+//               <CardContent>
+//                 <Typography variant="h6" component="h2">
+//                   Sound Quality
+//                 </Typography>
+//                 <Typography variant="body2" component="p">
+//                   <br />
+//                   Manually control the music quality in the event of a poor
+//                   connection.
+//                 </Typography>
+//               </CardContent>
+//               <CardActions>
+//                 <FormControl>
+//                   <InputLabel htmlFor="uncontrolled-native">Name</InputLabel>
+//                   <NativeSelect
+//                     defaultValue={30}
+//                     inputProps={{
+//                       id: "uncontrolled-native",
+//                     }}
+//                   >
+//                     <option value={10}>Low</option>
+//                     <option value={20}>Normal</option>
+//                     <option value={30}>High</option>
+//                   </NativeSelect>
+//                 </FormControl>
+//               </CardActions>
+//             </Card>
+//           </Grid>
+//         </Grid>
+//       </div>
+//       <h4>System Notifications...</h4>
+//       <div className="notifications">
+//         <Grid spacing={24} style={{ padding: 24, display: "flex" }}>
+//           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+//             <Card>
+//               <OnlineMode />
+//             </Card>
+//           </Grid>
+
+//           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+//             <Card>
+//               <CardContent>
+//                 <Typography variant="h6" component="h2">
+//                   Master Volume
+//                 </Typography>
+//                 <br />
+//                 <Typography variant="body2" component="p">
+//                   Overrides all other sound settings in this application.
+//                 </Typography>
+//               </CardContent>
+//               <CardActions>
+//                 <Slider
+//                   defaultValue={30}
+//                   aria-labelledby="discrete-slider"
+//                   valueLabelDisplay="auto"
+//                   step={10}
+//                   marks
+//                   min={10}
+//                   max={110}
+//                 />
+//               </CardActions>
+//             </Card>
+//           </Grid>
+
+//           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
+//             <Card>
+//               <CardContent>
+//                 <Typography variant="h6" component="h2">
+//                   Sound Quality
+//                 </Typography>
+//                 <Typography variant="body2" component="p">
+//                   <br />
+//                   Manually control the music quality in the event of a poor
+//                   connection.
+//                 </Typography>
+//               </CardContent>
+//               <CardActions>
+//                 <FormControl>
+//                   <InputLabel htmlFor="uncontrolled-native">Name</InputLabel>
+//                   <NativeSelect
+//                     defaultValue={30}
+//                     inputProps={{
+//                       id: "uncontrolled-native",
+//                     }}
+//                   >
+//                     <option value={10}>Low</option>
+//                     <option value={20}>Normal</option>
+//                     <option value={30}>High</option>
+//                   </NativeSelect>
+//                 </FormControl>
+//               </CardActions>
+//             </Card>
+//           </Grid>
+//         </Grid>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Dashboard;
