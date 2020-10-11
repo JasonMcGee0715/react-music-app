@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 
 export default function MasterVolume(props) {
   return (
+    props.masterVolume > 70 &&
     <div>
       <CardContent>
         <Typography variant="body2" component="p">
