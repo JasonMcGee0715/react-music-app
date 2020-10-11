@@ -11,12 +11,14 @@ import Slider from "@material-ui/core/Slider";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import NativeSelect from "@material-ui/core/NativeSelect";
-import OnlineMode from "./Notifications/onlineMode";
-import MasterVolume from "./Notifications/masterVolume";
-import SoundQuality from "./Notifications/soundQuality";
+import OnlineMode from "./Notifications/OnlineMode";
+import MasterVolume from "./Notifications/MasterVolume";
+import SoundQuality from "./Notifications/SoundQuality"
 
 const Dashboard = (props) => {
-  const [onlineMode, setOnlineMode] = useState(false)
+  const [onlineMode, setOnlineMode] = useState(false);
+  const [masterVolume, setMasterVolume] = useState(20);
+  const [soundQuality, setSoundQuality] = useState()
  
 
   //same thing as componentDidUpdate, but in functional based coding.
@@ -24,10 +26,24 @@ const Dashboard = (props) => {
     console.log(onlineMode)
   }, [onlineMode])
 
- const handleSwitch = (evt) => {
+  const handleSwitch = (evt) => {
     evt.preventDefault()
     setOnlineMode(!onlineMode)
   }
+
+  const handleVolume = (evt, newValue) => {
+    evt.preventDefault()
+    setMasterVolume(newValue)
+    console.log(masterVolume)
+  }
+
+  const handleQuality = (evt, value) => {
+    evt.preventDefault()
+    (value === 10) &&
+    setSoundQuality(value)
+    console.log(soundQuality)
+  }
+
     return (
       <div className="fullContainer">
         <h2>Welcome to your Music App!</h2>
@@ -67,13 +83,14 @@ const Dashboard = (props) => {
                 </CardContent>
                 <CardActions>
                   <Slider
-                    defaultValue={30}
+                    defaultValue={20}
                     aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
                     step={10}
                     marks
+                    onChange={handleVolume}
                     min={10}
-                    max={110}
+                    max={100}
                   />
                 </CardActions>
               </Card>
@@ -96,6 +113,7 @@ const Dashboard = (props) => {
                     <InputLabel htmlFor="uncontrolled-native">Name</InputLabel>
                     <NativeSelect
                       defaultValue={30}
+                      onchange={handleQuality}
                       inputProps={{
                         id: "uncontrolled-native",
                       }}
@@ -121,13 +139,13 @@ const Dashboard = (props) => {
 
             <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
               <Card>
-                <MasterVolume />
+                <MasterVolume masterVolume={masterVolume}/>
               </Card>
             </Grid>
 
             <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
               <Card>
-                <SoundQuality />
+                <SoundQuality soundQuality={soundQuality}/>
               </Card>
             </Grid>
           </Grid>
