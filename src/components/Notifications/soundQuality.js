@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 
 export default function SoundQuality(props) {
   return (
+    props.soundQuality &&
     <div>
       <CardContent>
         <Typography variant="body2" component="p">

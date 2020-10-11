@@ -3,7 +3,9 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
 export default function OnlineMode(props) {
+
   return (
+    !props.onlineMode &&
     <div>
       <CardContent>
         <Typography variant="body2" component="p">
@@ -11,6 +13,6 @@ export default function OnlineMode(props) {
           music to other devices.
         </Typography>
       </CardContent>
-    </div>
+    </div>  
   );
 }
