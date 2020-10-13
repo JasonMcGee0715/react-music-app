@@ -18,7 +18,7 @@ import SoundQuality from "./Notifications/SoundQuality"
 const Dashboard = (props) => {
   const [onlineMode, setOnlineMode] = useState(false);
   const [masterVolume, setMasterVolume] = useState(20);
-  const [soundQuality, setSoundQuality] = useState()
+  const [soundQuality, setSoundQuality] = useState(false)
  
 
   //same thing as componentDidUpdate, but in functional based coding.
