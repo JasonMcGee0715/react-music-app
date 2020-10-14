@@ -11,12 +11,12 @@ import Slider from "@material-ui/core/Slider";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import NativeSelect from "@material-ui/core/NativeSelect";
-import OnlineMode from "./Notifications/onlineMode";
-import MasterVolume from "./Notifications/masterVolume";
-import SoundQuality from "./Notifications/soundQuality";
+import OnlineMode from "./Notifications/OnlineMode";
+import MasterVolume from "./Notifications/MasterVolume";
+import SoundQuality from "./Notifications/SoundQuality";
 
 const Dashboard = (props) => {
-  const [onlineMode, setOnlineMode] = useState(false);
+  const [onlineMode, setOnlineMode] = useState(false)
   const [masterVolume, setMasterVolume] = useState(20);
   const [soundQuality, setSoundQuality] = useState();
 
@@ -84,6 +84,8 @@ const Dashboard = (props) => {
                 <br />
                 <Typography variant="body2" component="p">
                   Overrides all other sound settings in this application.
+                  <br/>
+                  <br/>
                 </Typography>
               </CardContent>
               <CardActions>
