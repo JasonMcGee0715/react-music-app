@@ -13,7 +13,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import OnlineMode from "./Notifications/OnlineMode";
 import MasterVolume from "./Notifications/MasterVolume";
-import SoundQuality from "./Notifications/SoundQuality";
+import SoundQuality from "./Notifications/soundQuality";
 
 const Dashboard = (props) => {
   const [onlineMode, setOnlineMode] = useState(false);
