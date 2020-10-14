@@ -20,6 +20,7 @@ const Dashboard = (props) => {
   const [masterVolume, setMasterVolume] = useState(20);
   const [soundQuality, setSoundQuality] = useState();
 
+
   //same thing as componentDidUpdate, but in functional based coding.
   useEffect(() => {
     console.log(onlineMode);
