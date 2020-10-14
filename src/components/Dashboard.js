@@ -11,9 +11,9 @@ import Slider from "@material-ui/core/Slider";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import NativeSelect from "@material-ui/core/NativeSelect";
-import OnlineMode from "./Notifications/onlineMode";
-import MasterVolume from "./Notifications/masterVolume";
-import SoundQuality from "./Notifications/soundQuality";
+import OnlineMode from "./Notifications/OnlineMode";
+import MasterVolume from "./Notifications/MasterVolume";
+import SoundQuality from "./Notifications/SoundQuality";
 
 const Dashboard = (props) => {
   const [onlineMode, setOnlineMode] = useState(false);
@@ -51,7 +51,7 @@ const Dashboard = (props) => {
           spacing={24}
           style={{
             padding: 24,
-            display: "flex"
+            display: "flex",
           }}
         >
           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
