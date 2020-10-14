@@ -51,7 +51,7 @@ const Dashboard = (props) => {
           spacing={24}
           style={{
             padding: 24,
-            display: "flex"
+            display: "flex",
           }}
         >
           <Grid item xs={12} sm={6} lg={4} xl={3} style={{ margin: 24 }}>
@@ -84,8 +84,6 @@ const Dashboard = (props) => {
                 <br />
                 <Typography variant="body2" component="p">
                   Overrides all other sound settings in this application.
-                  <br/>
-                  <br/>
                 </Typography>
               </CardContent>
               <CardActions>
